@@ -96,7 +96,7 @@ dagster dev -m koltin_dagster
 
 Luego abre http://localhost:3000 y ejecuta el job `full_dwh_pipeline`.
 
-![DAGSTER](https://raw.githubusercontent.com/isrita/Data-Warehouse-Governance---DBT---DAGSTER/main/pipelinedagster.png)
+![DAGSTER]([https://raw.githubusercontent.com/isrita/Data-Warehouse-Governance---DBT---DAGSTER/main/pipelinedagster.png](https://github.com/user-attachments/assets/449ecb96-c885-4bc4-b5b7-48045e390316))
 
 
 ### Opción 2: Solo DBT
