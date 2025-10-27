@@ -36,7 +36,7 @@ Bronze (Raw) → Silver (Clean) → Gold (Analytics)
 -  Lineage completo documentado
 
 ### 2. Documentación de Políticas del DWH
--  [GOVERNANCE.md](docs/GOVERNANCE.md) - Políticas completas de gobernanza
+-  GOVERNANCE.md - Políticas completas de gobernanza
 -  Nomenclatura, testing strategy, retención de datos
 -  Documentación inline en todos los modelos
 
