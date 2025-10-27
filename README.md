@@ -67,7 +67,7 @@ Bronze (Raw) → Silver (Clean) → Gold (Analytics)
 
 ### 1. Clonar el Repositorio
 
-git clone https://github.com/isrita/koltin-dwh.git
+git clone [https://github.com/isrita/koltin-dwh.git](https://github.com/isrita/Data-Warehouse-Governance---DBT---DAGSTER)
 cd koltin-dwh
 
 
@@ -96,7 +96,7 @@ dagster dev -m koltin_dagster
 
 Luego abre http://localhost:3000 y ejecuta el job `full_dwh_pipeline`.
 
-![Dagster UI](docs/images/dagster_ui.png)
+![DAGSTER](https://raw.githubusercontent.com/isrita/Data-Warehouse-Governance---DBT---DAGSTER/main/pipelinedagster.png)
 
 
 ### Opción 2: Solo DBT
@@ -136,22 +136,16 @@ python scripts/extract_diagnoses_groq.py
 
 ## Estructura del Proyecto
 
-koltin-dwh/
-├── dbt/
-│   ├── models/
-│   │   ├── bronze/          # Raw ingestion (5 tablas)
-│   │   ├── silver/          # Cleaned data (5 tablas)
-│   │   └── gold/            # Analytics-ready (4 tablas)
-│   ├── seeds/               # CSV source files
-│   └── dbt_project.yml
-├── koltin_dagster/
-│   ├── assets.py            # Dagster ops
-│   ├── jobs.py              # Pipeline jobs
-│   └── schedules.py         # Scheduled runs
-├── scripts/
-│   └── extract_diagnoses_groq.py
-├── GOVERNANCE.md            # Políticas del DWH
-└── README.md
+| Directorio | Descripción |
+|------------|-------------|
+| `dbt/models/bronze/` | **Bronze Layer** - Raw data ingestion (5 modelos) |
+| `dbt/models/silver/` | **Silver Layer** - Cleaned & normalized (5 modelos) |
+| `dbt/models/gold/` | **Gold Layer** - Analytics-ready (4 modelos) |
+| `dbt/seeds/` | Archivos CSV fuente (5 archivos) |
+| `koltin_dagster/` | **Orchestration** - Jobs, assets y schedules |
+| `scripts/` | Scripts Python (LLM extraction) |
+| `docs/images/` | Imágenes para documentación |
+| `GOVERNANCE.md` |  Políticas de gobernanza del DWH |
 
 ---
 
