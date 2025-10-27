@@ -1,0 +1,65 @@
+name: 'koltin_dw'
+version: '1.0.0'
+config-version: 2
+
+profile: 'koltin_dw'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+analysis-paths: ["analyses"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  koltin_dw:
+    bronze:
+      +materialized: table
+      +schema: bronze
+      +tags: ['bronze']
+    silver:
+      +materialized: table
+      +schema: silver
+      +tags: ['silver']
+    gold:
+      +materialized: table
+      +schema: gold
+      +tags: ['gold']
+
+seeds:
+  +schema: seeds
+  koltin_dw:
+    consultas_dummy:
+      +delimiter: ';'
+      +quote_columns: true
+    pathologies_clean:
+      +delimiter: ','
+      +column_types:
+        code: varchar
+        id: bigint
+        name: varchar
+    claims_dummy:
+      +delimiter: ','
+      +column_types:
+        SINIESTRO: varchar
+        STATE: varchar
+        CIE10: varchar
+        DIAGNOSIS: varchar
+        FECHA_OCURRIDO: varchar
+        FECHA_PAGO: varchar
+        FECHA_PRIMERGASTO: varchar
+        OCURRIDO: varchar
+        PAGOS: varchar
+        COASEGURO: varchar
+        IVAREC: varchar
+        DEDUCIBLE: varchar
+        CAUSA: varchar
+        CVE_MES: varchar
+        MES_CONT: varchar
+        TIPO_PAGO: varchar
+        CLASF_PROV: varchar
+        NumCertificado: bigint

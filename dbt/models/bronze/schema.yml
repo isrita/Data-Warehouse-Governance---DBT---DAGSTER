@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: bronze_certificates
+    description: "Raw certificate data from source system"
+    columns:
+      - name: id
+        description: "Primary key"
+        tests:
+          - not_null
+          - unique
+
+  - name: bronze_terms
+    description: "Raw membership terms data"
+    columns:
+      - name: id
+        description: "Primary key"
+        tests:
+          - not_null
+          - unique
+
+  - name: bronze_consultas
+    description: "Raw structured medical consultations"
+    columns:
+      - name: id
+        description: "Primary key"
+        tests:
+          - not_null
+          - unique
+
+  - name: bronze_pathologies
+    description: "Raw CIE-10 diagnosis codes"
+    columns:
+      - name: id
+        description: "Primary key"
+        tests:
+          - not_null
+          - unique
+
+  - name: bronze_claims
+    description: "Raw insurance claims data"
+    columns:
+      - name: SINIESTRO
+        description: "Claim ID"
+        tests:
+          - not_null
+          - unique

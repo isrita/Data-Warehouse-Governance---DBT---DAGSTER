@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: silver_members
+    description: "Cleaned and standardized member data"
+    columns:
+      - name: member_id
+        tests:
+          - not_null
+          - unique
+      - name: certificate_number
+        tests:
+          - not_null
+
+  - name: silver_terms
+    description: "Cleaned membership terms"
+    columns:
+      - name: term_id
+        tests:
+          - not_null
+          - unique
+
+  - name: silver_consultas
+    description: "Cleaned medical consultations"
+    columns:
+      - name: consulta_id
+        tests:
+          - not_null
+          - unique
+
+  - name: silver_claims
+    description: "Cleaned insurance claims"
+    columns:
+      - name: claim_id
+        tests:
+          - not_null
+          - unique
+
+  - name: silver_diagnosticos
+    description: "CIE-10 diagnosis catalog"
+    columns:
+      - name: diagnosis_id
+        tests:
+          - not_null
+          - unique
+      - name: cie10_code
+        tests:
+          - not_null

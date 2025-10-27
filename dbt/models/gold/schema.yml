@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: fact_interacciones_clinicas
+    description: "Fact table de todas las interacciones clínicas"
+    columns:
+      - name: interaction_key
+        description: "PK"
+        tests:
+          - not_null
+          - unique
+      - name: member_id
+        description: "FK to members"
+        tests:
+          - relationships:
+              to: ref('dim_members')
+              field: member_id
+
+  - name: dim_members
+    description: "Dimensión de miembros"
+    columns:
+      - name: member_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_diagnosticos
+    description: |
+      Dimensión de diagnósticos CIE-10 con estadísticas de edad y ocurrencia.
+      Incluye diagnósticos de siniestros y extraídos por LLM.
+    columns:
+      - name: diagnosis_key
+        description: "Surrogate key de diagnóstico"
+        tests:
+          - not_null
+          - unique
+      
+      - name: cie10_code
+        description: "Código CIE-10 (PK natural)"
+        tests:
+          - not_null
+          - unique
+      
+      - name: diagnosis_name
+        description: "Nombre del diagnóstico"
+        tests:
+          - not_null
+      
+      - name: cie10_category
+        description: "Categoría CIE-10 (letra inicial)"
+        tests:
+          - not_null
+      
+      - name: total_patients
+        description: "Número de pacientes únicos con este diagnóstico"
+        tests:
+          - not_null
+      
+      - name: total_occurrences
+        description: "Número total de veces que aparece este diagnóstico"
+        tests:
+          - not_null
+      
+      - name: avg_age_at_diagnosis
+        description: "Edad promedio al momento del diagnóstico (NULL si no hay datos)"
+      
+      - name: min_age_at_diagnosis
+        description: "Edad mínima al diagnóstico"
+      
+      - name: max_age_at_diagnosis
+        description: "Edad máxima al diagnóstico"
+      
+      - name: first_occurrence_date
+        description: "Primera vez que aparece este diagnóstico"
+      
+      - name: last_occurrence_date
+        description: "Última vez que aparece este diagnóstico"
+      
+      - name: _created_at
+        description: "Timestamp de creación"
+        tests:
+          - not_null

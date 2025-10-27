@@ -1,0 +1,59 @@
+﻿# DBT
+dbt/logs/
+dbt/target/
+dbt/*.log
+dbt/.user.yml
+dbt/dbt_packages/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+venv/
+.venv/
+env/
+ENV/
+
+# DuckDB
+*.duckdb.wal
+*.duckdb.tmp
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets
+.env
+*.key
+*.pem
+secrets/
+
+# Dagster
+dagster_home/
+.dagster/
+
+# Temporary files
+*.tmp
+*.bak
+*~
+.cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/
